@@ -1,0 +1,25 @@
+.filters {
+    margin: 8px;
+    padding: 0;
+    list-style: none;
+
+    li {
+        display: inline-block;
+        font-size: 1.6rem;
+
+        span {
+            cursor: pointer;
+            color: inherit;
+            margin: 3px;
+            padding: 3px 7px;
+            text-decoration: none;
+            border: 1px solid transparent;
+            border-radius: 3px;
+
+            .selected,
+            &:hover {
+                border-color: rgba(175, 47, 47, 0.1);
+            }
+        }
+    }
+}
