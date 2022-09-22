@@ -6,7 +6,7 @@ import styles from './Footer.modules.scss';
 const cx = classNames.bind(styles);
 
 function Footer(props) {
-    const { count } = props;
+    const { count, filter, changeFilter } = props;
 
     return (
         <div className={cx('todo-footer clear-fix')}>
@@ -17,7 +17,7 @@ function Footer(props) {
                 {' items left'}
             </div>
             <div>
-                <Filter />
+                <Filter filter={filter} change={changeFilter} />
             </div>
         </div>
     );
