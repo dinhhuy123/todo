@@ -1,3 +1,5 @@
+import update from 'immutability-helper';
+
 function getAll() {
     return [
         {
@@ -18,6 +20,21 @@ function getAll() {
     ];
 }
 
+function getItemById(itemId) {
+    return getAll().find((item) => item.id === itemId);
+}
+
+function updateStatus(items, itemId, completed) {
+    let index = items.findIndex((item) => item.id === itemId);
+
+    const newIndex = update(items, {
+        [index]: {
+            completed: { $set: completed },
+        },
+    });
+    return newIndex;
+}
+
 function createNew(text) {
     let nextId = this.state.items.length + 1;
     let item = {
@@ -28,4 +45,4 @@ function createNew(text) {
     return item;
 }
 
-export { getAll, createNew };
+export { getAll, createNew, getItemById, updateStatus };
