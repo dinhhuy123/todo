@@ -1,18 +1,17 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import styles from './Filter.modules.scss';
-import { getOptions } from '~/services/filter';
+import styles from './Filter.module.scss';
+import { getOptions } from '~/services';
 
 const cx = classNames.bind(styles);
 
-const options = getOptions();
-
 function Filter(props) {
+    const options = getOptions();
     const { filter, change } = props;
     const getClass = (key) => (key === filter ? 'selected' : '');
 
     return (
-        <ul className={cx('filters list-unstyled clear-fix')}>
+        <ul className={cx('filter')}>
             {Object.keys(options).map((key) => (
                 <li key={key}>
                     <span onClick={() => change(key)} className={cx(`${getClass(key)}`)}>

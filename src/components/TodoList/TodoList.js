@@ -1,32 +1,24 @@
 import React from 'react';
-import TodoItem from '~/components/TodoItem';
+import classNames from 'classnames/bind';
+import styles from './TodoList.module.scss';
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
-import classNames from 'classnames/bind';
-import styles from './TodoList.modules.scss';
-import { applyFilter } from '~/services/filter';
+import FilteredList from '~/components/FilteredList';
+import { applyFilter } from '~/services';
 
 const cx = classNames.bind(styles);
 
 function TodoList(props) {
-    const { title, items, addNew, filter, changeFilter, changeStatus } = props;
+    const { items, filter, mode } = props.data;
+    const { addNew, changeFilter, changeStatus } = props.actions;
     const count = items.length;
-
-    const filteredList = applyFilter(items, filter);
+    const filteredItems = applyFilter(items, filter);
 
     return (
-        <div className={cx('todo-list')}>
-            <Header title={title} addNew={addNew} />
-            {filteredList.length > 0 ? (
-                <ul className={cx('list-unstyled')}>
-                    {filteredList.map((item) => (
-                        <TodoItem key={item.id} data={item} changeStatus={changeStatus} />
-                    ))}
-                </ul>
-            ) : (
-                <p className={cx('alert alert-info')}>There are no items.</p>
-            )}
-            <Footer {...{ count, filter, changeFilter }} />
+        <div className={cx('todo')}>
+            <Header {...{ addNew, mode }} />
+            <FilteredList items={filteredItems} changeStatus={changeStatus} />
+            <Footer {...{ count, filter, changeFilter, mode }} />
         </div>
     );
 }

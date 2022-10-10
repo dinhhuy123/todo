@@ -1,15 +1,15 @@
 import React from 'react';
-import InputBox from '~/components/InputBox';
+import InputWrapper from '~/components/InputWrapper';
 import classNames from 'classnames/bind';
-import styles from './Header.modules.scss';
+import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Header({ title, addNew }) {
+function Header(props) {
     return (
         <header>
-            <h1 className={cx('header')}>{title.toUpperCase()}</h1>
-            <InputBox addNew={addNew} />
+            <h1 className={cx('header')}>Things To Do</h1>
+            <InputWrapper {...props} />
         </header>
     );
 }

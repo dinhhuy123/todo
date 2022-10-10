@@ -35,14 +35,34 @@ function updateStatus(items, itemId, completed) {
     return newIndex;
 }
 
-function createNew(text) {
-    let nextId = this.state.items.length + 1;
-    let item = {
-        id: nextId,
-        text: text,
-    };
+/**
+ * A counter to generate a unique iod for a todo item
+ * Can remove this logic then the todo is created using backend/database logic
+ * @type {number}
+ */
+let todoCounter = 1;
 
-    return item;
+function getNextId() {
+    return getAll().length + todoCounter++;
 }
 
-export { getAll, createNew, getItemById, updateStatus };
+/**
+ * Adds a new item on the list and returns the new updated list (immutable)
+ *
+ * @param {Array} list
+ * @param {Object} data
+ * @param {Array}
+ */
+
+function addToList(list, data) {
+    let item = Object.assign(
+        {
+            id: getNextId(),
+        },
+        data,
+    );
+
+    return list.concat([item]);
+}
+
+export { getAll, addToList, getItemById, updateStatus };

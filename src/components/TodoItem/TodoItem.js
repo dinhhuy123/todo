@@ -10,7 +10,7 @@ function TodoItem(props) {
     const handleChange = (checked) => changeStatus(data.id, checked);
 
     return (
-        <li key={data.id} className={cx('ui-state-default')}>
+        <li key={data.id} className={cx('item', 'default', `${data.completed === true ? 'completed' : 'pending'}`)}>
             <div className={cx('checkbox')}>
                 <label>
                     <CheckBox checked={data.completed} onChange={handleChange} /> {data.text}

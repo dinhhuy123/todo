@@ -1,13 +1,16 @@
-.todo-list {
+.todo {
     background-color: #fff;
     padding: 20px 20px 10px 20px;
     width: 600px;
     margin: 30px auto;
+    border: 1px solid #ddd;
+    border-radius: 2px;
 
     h1 {
         margin: 0;
         padding-bottom: 20px;
         text-align: center;
+        text-transform: uppercase;
     }
 }
 
