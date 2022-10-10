@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './App.module.scss';
 import TodoList from '~/components/TodoList';
 import { StateProvider } from '~/components/StateProvider';
+import { KeyStrokeHandler } from '~/components/KeyStrokeHandler';
 
 const cx = classNames.bind(styles);
 
@@ -12,7 +13,9 @@ class App extends Component {
             <div className={cx('container')}>
                 <div className="row">
                     <StateProvider>
-                        <TodoList />
+                        <KeyStrokeHandler>
+                            <TodoList />
+                        </KeyStrokeHandler>
                     </StateProvider>
                 </div>
             </div>

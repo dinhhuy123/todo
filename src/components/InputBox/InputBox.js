@@ -27,7 +27,7 @@ class InputBox extends React.Component {
 
         if (e.keyCode === Keycode.KEY_RETURN) {
             addNew(text);
-            this.clear();
+            this.setState({ value: '' });
         }
     }
 

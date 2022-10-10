@@ -4,21 +4,21 @@ import styles from './TodoList.module.scss';
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import FilteredList from '~/components/FilteredList';
-import { applyFilter } from '~/services';
+import { applyFilter, search } from '~/services/filter';
 
 const cx = classNames.bind(styles);
 
 function TodoList(props) {
-    const { items, filter, mode } = props.data;
-    const { addNew, changeFilter, changeStatus } = props.actions;
-    const count = items.length;
-    const filteredItems = applyFilter(items, filter);
+    const { list, filter, mode, query } = props.data;
+    const { addNew, changeFilter, changeStatus, changeMode, setSearchQuery } = props.actions;
+    const count = list.filter((list) => !list.completed).length;
+    const items = search(applyFilter(list, filter), query);
 
     return (
         <div className={cx('todo')}>
-            <Header {...{ addNew, mode }} />
-            <FilteredList items={filteredItems} changeStatus={changeStatus} />
-            <Footer {...{ count, filter, changeFilter, mode }} />
+            <Header {...{ addNew, mode, query, setSearchQuery }} />
+            <FilteredList {...{ items, changeStatus }} />
+            <Footer {...{ count, filter, changeFilter, mode, changeMode }} />
         </div>
     );
 }
