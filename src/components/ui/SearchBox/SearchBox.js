@@ -9,7 +9,7 @@ function SearchBox(props) {
     return (
         <input
             type="text"
-            autofocus
+            autoFocus
             className={cx('form-search', 'search')}
             value={query}
             onChange={(e) => setSearchQuery(e.target.value)}

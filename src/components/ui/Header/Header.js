@@ -1,5 +1,5 @@
 import React from 'react';
-import InputWrapper from '~/components/InputWrapper';
+import InputWrapper from '~/components/ui/InputWrapper';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 

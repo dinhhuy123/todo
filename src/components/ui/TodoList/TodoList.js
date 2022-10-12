@@ -1,9 +1,10 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './TodoList.module.scss';
-import Header from '~/components/Header';
-import Footer from '~/components/Footer';
-import FilteredList from '~/components/FilteredList';
+import Header from '~/components/ui/Header';
+import Footer from '~/components/ui/Footer';
+import FilteredList from '~/components/ui/FilteredList';
+import Info from '~/components/ui/Info';
 import { applyFilter, search } from '~/services/filter';
 
 const cx = classNames.bind(styles);
@@ -19,6 +20,7 @@ function TodoList(props) {
             <Header {...{ addNew, mode, query, setSearchQuery }} />
             <FilteredList {...{ items, changeStatus }} />
             <Footer {...{ count, filter, changeFilter, mode, changeMode }} />
+            <Info {...{ mode }} />
         </div>
     );
 }

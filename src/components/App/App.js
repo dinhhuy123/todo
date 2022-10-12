@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames/bind';
 import styles from './App.module.scss';
-import TodoList from '~/components/TodoList';
+import TodoList from '~/components/ui/TodoList';
 import { StateProvider } from '~/components/StateProvider';
 import { KeyStrokeHandler } from '~/components/KeyStrokeHandler';
 

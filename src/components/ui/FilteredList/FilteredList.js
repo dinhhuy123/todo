@@ -1,7 +1,7 @@
 import React from 'react';
 import ClassNames from 'classnames/bind';
 import styles from './FilteredList.module.scss';
-import TodoItem from '~/components/TodoItem';
+import TodoItem from '~/components/ui/TodoItem';
 
 const cx = ClassNames.bind(styles);
 

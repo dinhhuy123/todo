@@ -1,8 +1,8 @@
 import React from 'react';
-import Filter from '~/components/Filter';
+import Filter from '~/components/ui/Filter';
+import ButtonWrapper from '~/components/ui/ButtonWrapper';
 import classNames from 'classnames/bind';
 import styles from './Footer.module.scss';
-import ButtonWrapper from '~/components/ButtonWrapper';
 
 const cx = classNames.bind(styles);
 

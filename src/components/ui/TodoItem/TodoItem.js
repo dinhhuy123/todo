@@ -1,7 +1,7 @@
 import React from 'react';
+import { CheckBox } from '~/components/ui/CheckBox';
 import classNames from 'classnames/bind';
 import styles from './TodoItem.modules.scss';
-import { CheckBox } from '~/components/CheckBox';
 
 const cx = classNames.bind(styles);
 

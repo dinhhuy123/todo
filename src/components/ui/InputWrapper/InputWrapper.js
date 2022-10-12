@@ -1,6 +1,6 @@
 import React from 'react';
-import InputBox from '~/components/InputBox';
-import SearchBox from '~/components/SearchBox';
+import InputBox from '~/components/ui/InputBox';
+import SearchBox from '~/components/ui/SearchBox';
 import { MODE_SEARCH, MODE_CREATE } from '~/services/mode';
 
 function InputWrapper(props) {
